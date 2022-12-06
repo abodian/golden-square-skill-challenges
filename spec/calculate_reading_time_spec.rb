@@ -13,7 +13,7 @@ describe 'calculate_reading_time method ' do
   it 'returns 2 when passed three hundred words' do
     expect(calculate_reading_time('one ' * 300)).to eq 2
   end
-  it 'returns 5 when passed twenty five thousand words' do
-    expect(calculate_reading_time('one ' * 25000)).to eq 25
+  it 'returns 5 when passed five thousand words' do
+    expect(calculate_reading_time('one ' * 5000)).to eq 25
   end
 end 
