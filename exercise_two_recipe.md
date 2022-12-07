@@ -1,4 +1,4 @@
-{{TWO}} Method Design Recipe
+Check Grammar Method Design Recipe
 
 1. Describe the Problem
 
@@ -21,27 +21,27 @@ correct_grammar = check_grammar(sentence)
 # 1
 check_grammar("")
 # => false
-# => "You need to enter a sentence"
+
 
 # 2
 check_grammar("This is a correct sentence.")
 # => true
-# => "Your grammar is correct"
+
 
 # 3
 check_grammar("this sentence has no capital at the start.")
 # => false
-# => "Your grammar is incorrect"
+
 
 # 4
 check_grammar("This sentence has a capital letter")
 # => false
-# => "Your grammar is incorrect"
+
 
 # 5
-check_grammar("this sentence is has the ultimate poor grammar")
+check_grammar("this sentence has the ultimate poor grammar")
 # => false
-# => "Your grammar is incorrect"
+
 ```
 
 

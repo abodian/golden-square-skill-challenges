@@ -1,4 +1,4 @@
-{{ONE}} Method Design Recipe
+Reading Time Method Design Recipe
 
 1. Describe the Problem
 
