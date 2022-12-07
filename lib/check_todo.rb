@@ -1,7 +1,4 @@
 def check_todo(sentence)
-  if sentence.include?("TODO")
-    return true
-  else
-    return false
-  end
+  fail "Error: that is not a string" if sentence.is_a? Integer
+  sentence.include?("TODO") ? true : false
 end
