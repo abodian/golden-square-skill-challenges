@@ -16,4 +16,8 @@ describe "check_todo method" do
   it "returns false if given an empty string" do
     expect(check_todo("")).to eq false
   end
+
+  it "returns an error when passed nothing" do
+    expect { check_todo(nil) }.to raise_error "Error: that is not a string"
+  end
 end
