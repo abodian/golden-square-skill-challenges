@@ -3,20 +3,18 @@ class TaskList
     @task_list = []
   end
   
-  def add_task(task) # task is a string representing a todo task
-    @task_list.push(task)
+  def add_task(task)
+    unless @task_list.include?(task)
+      @task_list.push(task)
+    end
   end
   
   def list
-    return @task_list.join(", ")
-    # returns list of todo tasks as strings
+    return @task_list.join(" - ")
   end
   
-  def complete(task) # task is a string reprenting a todo task to be completed and removed
-    # returns nothing
+  def complete(task) 
+    fail "Error: that task is not in the list" unless @task_list.include? task
+    @task_list.delete(task)
   end
 end
-
-tasklist = TaskList.new
-tasklist.add_task("Clean the kitchen")
-p tasklist.list

@@ -45,7 +45,7 @@ tasklist.list # => "Clean the kitchen"
 tasklist = TaskList.new
 tasklist.add_task("Clean the kitchen")
 tasklist.add_task("Tidy my bedroom")
-tasklist.list # => "Clean the kitchen", "Tidy my bedroom"
+tasklist.list # => "Clean the kitchen - Tidy my bedroom"
 
 # 3
 tasklist = TaskList.new
@@ -53,21 +53,21 @@ tasklist.add_task("Clean the kitchen")
 tasklist.add_task("Tidy my bedroom")
 tasklist.add_task("Walk the dog")
 tasklist.complete("Tidy my bedroom")
-tasklist.list # => "Clean the kitchen", "Walk the dog"
+tasklist.list # => "Clean the kitchen - Walk the dog"
 
 # 4
 tasklist = TaskList.new
 tasklist.add_task("Clean the kitchen")
 tasklist.add_task("Tidy my bedroom")
 tasklist.add_task("Tidy my bedroom") # try to add duplicate
-tasklist.list # => "Clean the kitchen", "Tidy my bedroom"
+tasklist.list # => "Clean the kitchen - Tidy my bedroom"
 
 #5
 tasklist = TaskList.new
 tasklist.add_task("Clean the kitchen")
 tasklist.add_task("Tidy my bedroom")
 tasklist.complete("Walk the dog") # try to complete a task that doesn't exist
-tasklist.list # => "Clean the kitchen", "Tidy my bedroom"
+tasklist.list # => "Clean the kitchen - Tidy my bedroom"
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
