@@ -36,21 +36,38 @@ end
 _Make a list of examples of how the class will behave in different situations._
 
 ```ruby
-# EXAMPLE
-
 # 1
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+tasklist = TaskList.new
+tasklist.add_task("Clean the kitchen")
+tasklist.list # => "Clean the kitchen"
 
 # 2
-reminder = Reminder("Kay")
-reminder.remind() # fails with "No task set."
+tasklist = TaskList.new
+tasklist.add_task("Clean the kitchen")
+tasklist.add_task("Tidy my bedroom")
+tasklist.list # => "Clean the kitchen", "Tidy my bedroom"
 
 # 3
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
+tasklist = TaskList.new
+tasklist.add_task("Clean the kitchen")
+tasklist.add_task("Tidy my bedroom")
+tasklist.add_task("Walk the dog")
+tasklist.complete("Tidy my bedroom")
+tasklist.list # => "Clean the kitchen", "Walk the dog"
+
+# 4
+tasklist = TaskList.new
+tasklist.add_task("Clean the kitchen")
+tasklist.add_task("Tidy my bedroom")
+tasklist.add_task("Tidy my bedroom") # try to add duplicate
+tasklist.list # => "Clean the kitchen", "Tidy my bedroom"
+
+#5
+tasklist = TaskList.new
+tasklist.add_task("Clean the kitchen")
+tasklist.add_task("Tidy my bedroom")
+tasklist.complete("Walk the dog") # try to complete a task that doesn't exist
+tasklist.list # => "Clean the kitchen", "Tidy my bedroom"
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
