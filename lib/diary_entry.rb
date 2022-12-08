@@ -35,7 +35,7 @@ class DiaryEntry
     words_can_read = wpm * minutes
     start_from = @bookmark
     end_at = @bookmark + words_can_read
-    word_list = @contents_array[start_from, end_at]
+    word_list = @contents_array[start_from...end_at]
     
     if end_at >= @contents_array.count
       @bookmark = 0
