@@ -25,4 +25,11 @@ describe "GrammarStats class" do
     check_text = GrammarStats.new
     expect(check_text.check("this is another test")).to eq false
   end
+
+  it "returns as an integer the percentage of texts checked so far that passed" do
+    check_text = GrammarStats.new
+    expect(check_text.check("this is another test")).to eq false
+    expect(check_text.check("This is a good test.")).to eq true
+    expect(check_text.percentage_good).to eq 50
+  end
 end
