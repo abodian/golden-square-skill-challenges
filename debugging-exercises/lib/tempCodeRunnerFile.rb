@@ -1,0 +1,1 @@
+  most_common_char = text_sort[-1][0]
