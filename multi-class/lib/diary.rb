@@ -1,19 +1,22 @@
 # File: lib/diary.rb
 class Diary
   def initialize
+    @diary = []
   end
 
   def add(entry) # entry is an instance of DiaryEntry
-    # Returns nothing
+    @diary.push(entry)
   end
 
   def all
-    # Returns a list of instances of DiaryEntry
+    return @diary
   end
 
   def count_words
-    # Returns the number of words in all diary entries
-    # HINT: This method should make use of the `count_words` method on DiaryEntry.
+    return @diary.sum(&:count_words)
+    # return @diary.map do |entry|
+    #   entry.count_words
+    # end.sum
   end
 
   def reading_time(wpm) # wpm is an integer representing
@@ -32,4 +35,11 @@ class Diary
     # have available given their reading speed.
   end
 end
+
+diary = Diary.new
+diary.add("test")
+
+
+
+
 
