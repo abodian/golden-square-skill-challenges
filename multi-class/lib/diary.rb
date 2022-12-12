@@ -1,7 +1,10 @@
 # File: lib/diary.rb
+require_relative "../lib/diary_entry.rb"
+
 class Diary
   def initialize
     @diary = []
+    @entry_hash = {}
   end
 
   def add(entry) 
@@ -26,17 +29,20 @@ class Diary
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
-        # `wpm` is an integer representing the number of words the user can read
-        # per minute.
-        # `minutes` is an integer representing the number of minutes the user
-        # has to read.
-    # Returns an instance of diary entry representing the entry that is closest 
-    # to, but not over, the length that the user could read in the minutes they
-    # have available given their reading speed.
+    words_can_read = wpm * minutes
+
+    @diary.map do |entry|
+      @entry_hash[entry.count_words] = entry.contents
+    end
+    sorted_hash = @entry_hash.sort_by { | count, chunk | count }.reverse!
+    sorted_hash.find do | count, chunk |
+      if count <= words_can_read
+        return chunk
+      end
+    end
   end
 end
 
 
 
-
-
+# Create a hash, iterate over each entry with reading_chunk, count each entry 
