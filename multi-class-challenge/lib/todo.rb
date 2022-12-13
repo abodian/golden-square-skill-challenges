@@ -4,7 +4,7 @@ require_relative "todo_list.rb"
 class Todo
   def initialize(task) 
     @task = task
-    @completed_list = []
+    @complete = false
   end
 
   def task
@@ -12,10 +12,10 @@ class Todo
   end
 
   def mark_done!
-    @completed_list.push(@task)
+    @complete = true
   end
 
   def done?
-    @completed_list.include?(@task)
+    return @complete
   end
 end
