@@ -13,21 +13,13 @@ class TodoList
   end
 
   def incomplete
-    @todo_list.each do | todo |
-      if todo.done? == false
-        @incomplete_tasks.push(todo)
-      end
-    end
-    return @incomplete_tasks
+    @todo_list.each { |todo| !todo.done? ? @incomplete_tasks << todo : nil }
+    @incomplete_tasks
   end
 
   def complete
-    @todo_list.each do | todo |
-      if todo.done? == true
-        @completed_tasks.push(todo)
-      end
-    end
-    return @completed_tasks
+    @todo_list.each { |todo| todo.done? ? @completed_tasks << todo : nil }
+    @completed_tasks
   end
 
   def give_up!
@@ -36,4 +28,3 @@ class TodoList
     end
   end
 end
-
